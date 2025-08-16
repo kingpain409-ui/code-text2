@@ -1,0 +1,561 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈闯 Tarik- AI专家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#3B82F6',
+                        accent: '#10B981',
+                        light: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-balance {
+                text-wrap: balance;
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            }
+            .animate-fadeIn {
+                animation: fadeIn 0.8s ease forwards;
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-light text-primary font-sans antialiased">
+    <!-- 导航栏 -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-xl font-bold tracking-tight">陈闯</a>
+                
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-secondary transition-colors">关于</a>
+                    <a href="#skills" class="hover:text-secondary transition-colors">技能</a>
+                    <a href="#projects" class="hover:text-secondary transition-colors">项目</a>
+                    <a href="#contact" class="hover:text-secondary transition-colors">联系</a>
+                </nav>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-primary" id="menuBtn">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#about" class="py-2 hover:text-secondary transition-colors">关于</a>
+                <a href="#skills" class="py-2 hover:text-secondary transition-colors">技能</a>
+                <a href="#projects" class="py-2 hover:text-secondary transition-colors">项目</a>
+                <a href="#contact" class="py-2 hover:text-secondary transition-colors">联系</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 英雄区域 -->
+        <section class="min-h-screen flex items-center pt-20 pb-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2 order-2 lg:order-1">
+                        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight mb-6">
+                            陈闯 Tarik
+                            <span class="text-secondary block mt-2">AI 研究与应用专家</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8 max-w-xl text-balance">
+                            专注于人工智能、机器学习和深度学习领域的研究与应用，致力于用AI技术解决实际问题，推动行业创新。
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contact" class="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                联系我
+                            </a>
+                            <a href="#projects" class="border border-primary hover:border-secondary text-primary hover:text-secondary px-6 py-3 rounded-lg font-medium transition-all">
+                                查看项目
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 order-1 lg:order-2 flex justify-center">
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-gradient-to-r from-secondary to-accent rounded-full blur-xl opacity-20 animate-float"></div>
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c4acf8a493b0467b913264615efe08a4~tplv-a9rns2rl98-image.image?rcl=20250815203916DE52A533827C95EC51DD&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1755866356&amp;x-signature=r%2BhiX6RxY8h4AzkHLkB2HHXdRHE%3D" alt="陈闯的头像，一位专注的AI专家" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white shadow-xl relative z-10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于部分 -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">关于我</h2>
+                    <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                </div>
+                
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        我是陈闯，一名拥有8年AI领域经验的研究与应用专家。毕业于清华大学计算机科学与技术专业，曾在多家知名科技公司担任AI算法工程师和技术负责人。
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        我的研究方向包括自然语言处理、计算机视觉和强化学习，在顶级学术期刊和会议上发表多篇论文。同时，我也专注于将AI技术落地到实际产品中，推动产业智能化升级。
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        除了技术工作，我还热衷于分享AI知识，曾在多个技术社区和高校举办讲座，帮助更多人了解和掌握人工智能技术。
+                    </p>
+                    
+                    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-secondary mb-2">8+</div>
+                            <div class="text-gray-600">行业经验</div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-secondary mb-2">50+</div>
+                            <div class="text-gray-600">完成项目</div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-secondary mb-2">20+</div>
+                            <div class="text-gray-600">学术论文</div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm">
+                            <div class="text-3xl font-bold text-secondary mb-2">30+</div>
+                            <div class="text-gray-600">技术讲座</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能部分 -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">专业技能</h2>
+                    <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                        多年来专注于AI领域的研究与实践，积累了丰富的技术经验和项目落地能力
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 技能卡片 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="fa fa-brain text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">机器学习</h3>
+                        <p class="text-gray-600 mb-4">
+                            精通各类机器学习算法，包括分类、回归、聚类和推荐系统，能够根据实际问题选择和优化算法。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">监督学习</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">无监督学习</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">强化学习</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Scikit-learn</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 技能卡片 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="fa fa-comment text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">自然语言处理</h3>
+                        <p class="text-gray-600 mb-4">
+                            深入研究NLP技术，包括文本分类、命名实体识别、机器翻译和大型语言模型应用与微调。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">BERT</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">GPT</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Transformer</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">spaCy</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 技能卡片 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="fa fa-eye text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">计算机视觉</h3>
+                        <p class="text-gray-600 mb-4">
+                            擅长图像识别、目标检测、图像分割和生成式视觉模型，有丰富的实际项目落地经验。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">CNN</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">YOLO</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">ResNet</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">OpenCV</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 技能卡片 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="fa fa-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">编程与工程</h3>
+                        <p class="text-gray-600 mb-4">
+                            熟练掌握多种编程语言和工程工具，能够高效开发和部署AI模型，确保系统稳定运行。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">TensorFlow</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">PyTorch</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Docker</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 技能卡片 5 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="fa fa-cloud text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">云服务与部署</h3>
+                        <p class="text-gray-600 mb-4">
+                            熟悉各大云平台的AI服务和模型部署流程，能够将模型高效部署到生产环境并进行监控优化。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">AWS</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Azure</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">GCP</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">Kubernetes</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 技能卡片 6 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="fa fa-project-diagram text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">项目管理</h3>
+                        <p class="text-gray-600 mb-4">
+                            具备丰富的AI项目管理经验，能够协调跨部门资源，制定合理计划，确保项目按时高质量交付。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">敏捷开发</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">需求分析</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">团队协作</span>
+                            <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full">风险管理</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目部分 -->
+        <section id="projects" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">精选项目</h2>
+                    <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                        多年来参与和主导的部分AI项目，涵盖多个行业和应用场景
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 项目卡片 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://picsum.photos/id/180/600/400" alt="智能客服系统界面展示" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-secondary text-sm font-medium rounded-full mb-3">自然语言处理</span>
+                            <h3 class="text-xl font-bold mb-2">智能客服系统</h3>
+                            <p class="text-gray-600 mb-4">
+                                基于深度学习的智能客服系统，能够理解用户意图，提供精准回答，准确率达92%，降低客服成本40%。
+                            </p>
+                            <a href="#" class="inline-flex items-center text-secondary font-medium hover:underline">
+                                查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目卡片 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://picsum.photos/id/42/600/400" alt="医疗影像诊断系统界面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-green-100 text-green-600 text-sm font-medium rounded-full mb-3">计算机视觉</span>
+                            <h3 class="text-xl font-bold mb-2">医疗影像诊断系统</h3>
+                            <p class="text-gray-600 mb-4">
+                                利用深度学习技术辅助医生进行医学影像分析，提高早期疾病检测率，尤其在肺部和脑部影像诊断方面表现突出。
+                            </p>
+                            <a href="#" class="inline-flex items-center text-secondary font-medium hover:underline">
+                                查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目卡片 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="h-56 overflow-hidden">
+                            <img src="https://picsum.photos/id/160/600/400" alt="智能推荐平台展示" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-600 text-sm font-medium rounded-full mb-3">机器学习</span>
+                            <h3 class="text-xl font-bold mb-2">智能推荐平台</h3>
+                            <p class="text-gray-600 mb-4">
+                                为电商平台开发的个性化推荐系统，结合用户行为和内容特征，显著提升转化率和用户留存率。
+                            </p>
+                            <a href="#" class="inline-flex items-center text-secondary font-medium hover:underline">
+                                查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#" class="inline-flex items-center bg-white border border-secondary text-secondary hover:bg-secondary hover:text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        查看更多项目 <i class="fa fa-external-link ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系部分 -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">联系我</h2>
+                    <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                        无论您有项目合作、技术咨询还是其他需求，都欢迎与我联系，我会尽快回复
+                    </p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div>
+                            <form class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">您的姓名</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors" placeholder="请输入您的姓名">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">电子邮箱</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors" placeholder="请输入您的邮箱">
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">留言内容</label>
+                                    <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-colors" placeholder="请输入您的留言内容"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-md hover:shadow-lg">
+                                    发送留言
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="flex flex-col justify-center">
+                            <div class="space-y-8">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 text-secondary flex-shrink-0">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-1">电子邮箱</h3>
+                                        <p class="text-gray-600">1305834904@qq.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 text-secondary flex-shrink-0">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-1">电话</h3>
+                                        <p class="text-gray-600">+86 138 **** 5678</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 text-secondary flex-shrink-0">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-1">地址</h3>
+                                        <p class="text-gray-600">北京市海淀区中关村科技园区</p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-lg font-bold mb-4">社交媒体</h3>
+                                    <div class="flex space-x-4">
+                                        <a href="#" class="w-10 h-10 bg-blue-100 hover:bg-secondary text-secondary hover:text-white rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 bg-blue-100 hover:bg-secondary text-secondary hover:text-white rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 bg-blue-100 hover:bg-secondary text-secondary hover:text-white rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 bg-blue-100 hover:bg-secondary text-secondary hover:text-white rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-weixin"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">陈闯</h3>
+                    <p class="text-gray-400">AI 研究与应用专家</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors">关于</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition-colors">技能</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition-colors">项目</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 陈闯Tarik. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-secondary/90">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+                
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+                
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuBtn.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+            } else {
+                menuBtn.innerHTML = '<i class="fa fa-times text-xl"></i>';
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单（如果打开）
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 回到顶部按钮
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 添加元素进入动画
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.grid > div');
+            
+            elements.forEach((element, index) => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    // 为每个元素添加延迟，创建级联效果
+                    setTimeout(() => {
+                        element.classList.add('animate-fadeIn');
+                    }, index * 100);
+                }
+            });
+        };
+        
+        // 初始加载时检查
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+
+
+</body></html>
